@@ -18,4 +18,4 @@ RUN pip3 install djangorestframework
 
 ADD settings.py /etc/frepple/djangosettings.py
 ADD start.sh /usr/bin/startfrepple
-CMD ["startfrepple"]
+CMD ["start.sh"]

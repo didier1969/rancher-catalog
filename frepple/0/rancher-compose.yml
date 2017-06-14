@@ -1,8 +1,8 @@
 .catalog:
-  name: "Odoo"
+  name: "frePPLe"
   version: v0.1-dstadel
-  description: "ERP management powered by Odoo"
-  uuid: odoo-0
+  description: "Open source supply chain planning software"
+  uuid: frepple-0
   questions:
 
-odoo:
+frepple:

@@ -4,8 +4,7 @@ frepple3:
     - "8003:8000"
   links:
     - db
-  roles:
-  - global
+
 db:
   image: postgres
   environment:

@@ -19,11 +19,12 @@ RUN apt-get -y -q upgrade
 # RUN sed -i 's/local\(\s*\)all\(\s*\)all\(\s*\)peer/local\1all\2all\3\md5/g' /etc/postgresql/9.*/main/pg_hba.conf
 # RUN service postgresql restart
 
+ADD resources/ /resources 
+WORKDIR /resources
+
 RUN apt-get -y install python3 python3-pip
 RUN pip3 install -r requirements.txt
 
-ADD resources/ /resources 
-WORKDIR /resources
 RUN dpkg -i frepple_*.deb
 RUN apt-get -f -y -q install
 

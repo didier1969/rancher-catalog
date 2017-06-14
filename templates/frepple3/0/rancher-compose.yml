@@ -1,0 +1,8 @@
+.catalog:
+  name: "frePPLe v3"
+  version: v0.1-dstadel
+  description: "Open source supply chain planning software"
+  uuid: frepple3-0
+  questions:
+
+frepple3:

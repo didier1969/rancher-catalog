@@ -1,7 +1,7 @@
-frepple:
-  image: frepple
+frepple4:
+  image: dstadel/frepple4
   ports:
-    - "8000:8000"
+    - "8004:8000"
   links:
     - db
 db:

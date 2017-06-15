@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# /var/lib/postgresql/data/pgdata/postgresql.conf sur stack original de rancher
+
 # client_encoding: 'UTF8'
 bash -c "client_encoding: 'UTF8'" >> /etc/postgresql/9.6/main/postgresql.conf
 

@@ -7,7 +7,7 @@ services:
     labels:
       io.rancher.container.agent.role: environmentAdmin
       io.rancher.container.create_agent: 'true'
-  postgres-data:
+    postgres-data:
     image: busybox
     volumes:
     - /var/lib/postgresql/data/pgdata
@@ -20,7 +20,7 @@ services:
       POSTGRES_DB: dstadel
       POSTGRES_PASSWORD: stdi5757?
       POSTGRES_USER: dstadel
-    stdin_open: true
+      stdin_open: true
     tty: true
     volumes_from:
     - postgres-data

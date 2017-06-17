@@ -33,6 +33,8 @@ odoo-db:
   command: postgres -c client_encoding='UTF8' -c default_transaction_isolation='read committed' -c timezone='UTC'
 frepple:
   image: dstadel/frepple41
+  labels:
+    io.rancher.container.pull_image: always
   links:
   - frepple-db:frepple-db
   ports:

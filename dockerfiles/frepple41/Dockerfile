@@ -36,7 +36,7 @@ COPY resources/entrypoint.sh /
 USER frepple
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD [service apache2 restart]
+CMD service apache2 restart
 
 
 # RUN apt-get install -y software-properties-common wget

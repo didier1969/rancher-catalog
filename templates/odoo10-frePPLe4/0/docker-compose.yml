@@ -1,62 +1,60 @@
-version: '2'
-services:
-  odoo:
-    image: odoo
-    links:
-    - odoo-db:odoo-db
-    ports:
-    - 8070:8069/tcp
-  odoo-lb:
-    image: rancher/lb-service-haproxy:v0.7.5
-    ports:
-    - 5432:5432/tcp
-    labels:
-      io.rancher.container.agent.role: environmentAdmin
-      io.rancher.container.create_agent: 'true'
-  postgres-data:
-    image: busybox
-    volumes:
-    - /var/lib/postgresql/data/pgdata
-    labels:
-      io.rancher.container.start_once: 'true'
-  odoo-db:
-    image: postgres:latest
-    environment:
-      PGDATA: /var/lib/postgresql/data/pgdata
-      POSTGRES_DB: odoo
-      POSTGRES_PASSWORD: odoo
-      POSTGRES_USER: odoo
-    stdin_open: true
-    tty: true
-    volumes_from:
-    - postgres-data
-    labels:
-      io.rancher.sidekicks: postgres-data
-    command: postgres -c client_encoding='UTF8' -c default_transaction_isolation='read committed' -c timezone='UTC'
-  frepple:
-    image: ajroo/frepple-dockerfile
-    links:
-    - frepple-db:frepple-db
-    ports:
-    - 8000:8000
-  frepple-lb:
-    image: rancher/lb-service-haproxy:v0.7.5
-    ports:
-    - 5433:5433/tcp
-    labels:
-      io.rancher.container.agent.role: environmentAdmin
-      io.rancher.container.create_agent: 'true'
-  frepple-db:
-    image: postgres:latest
-    environment:
-      PGDATA: /var/lib/postgresql/data/pgdata
-      POSTGRES_DB: frepple
-      POSTGRES_PASSWORD: frepple
-      POSTGRES_USER: frepple
-    stdin_open: true
-    tty: true
-    volumes_from:
-    - postgres-data
-    labels:
-      io.rancher.sidekicks: postgres-data
-    command: postgres -c client_encoding='UTF8' -c default_transaction_isolation='read committed' -c timezone='UTC'
+odoo:
+  image: odoo
+  links:
+  - odoo-db:odoo-db
+  ports:
+  - 8070:8069/tcp
+odoo-lb:
+  image: rancher/lb-service-haproxy:v0.7.5
+  ports:
+  - 5432:5432/tcp
+  labels:
+    io.rancher.container.agent.role: environmentAdmin
+    io.rancher.container.create_agent: 'true'
+postgres-data:
+  image: busybox
+  volumes:
+  - /var/lib/postgresql/data/pgdata
+  labels:
+    io.rancher.container.start_once: 'true'
+odoo-db:
+  image: postgres:latest
+  environment:
+    PGDATA: /var/lib/postgresql/data/pgdata
+    POSTGRES_DB: odoo
+    POSTGRES_PASSWORD: odoo
+    POSTGRES_USER: odoo
+  stdin_open: true
+  tty: true
+  volumes_from:
+  - postgres-data
+  labels:
+    io.rancher.sidekicks: postgres-data
+  command: postgres -c client_encoding='UTF8' -c default_transaction_isolation='read committed' -c timezone='UTC'
+frepple:
+  image: ajroo/frepple-dockerfile
+  links:
+  - frepple-db:frepple-db
+  ports:
+  - 8000:8000
+frepple-lb:
+  image: rancher/lb-service-haproxy:v0.7.5
+  ports:
+  - 5433:5433/tcp
+  labels:
+    io.rancher.container.agent.role: environmentAdmin
+    io.rancher.container.create_agent: 'true'
+frepple-db:
+  image: postgres:latest
+  environment:
+    PGDATA: /var/lib/postgresql/data/pgdata
+    POSTGRES_DB: frepple
+    POSTGRES_PASSWORD: frepple
+    POSTGRES_USER: frepple
+  stdin_open: true
+  tty: true
+  volumes_from:
+  - postgres-data
+  labels:
+    io.rancher.sidekicks: postgres-data
+  command: postgres -c client_encoding='UTF8' -c default_transaction_isolation='read committed' -c timezone='UTC'

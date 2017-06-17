@@ -22,8 +22,8 @@ RUN pip3 install -r requirements.txt
 RUN dpkg -i frepple_*.deb
 RUN apt-get -f -y -q install
 
-RUN frepplectl migrate
-RUN frepplectl loaddata demo
+# RUN frepplectl migrate
+# RUN frepplectl loaddata demo
 
 RUN a2enmod expires
 RUN a2enmod wsgi

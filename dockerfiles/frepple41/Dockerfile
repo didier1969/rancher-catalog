@@ -33,8 +33,6 @@ EXPOSE 8000
 
 COPY resources/entrypoint.sh /
 
-USER frepple
-
 ENTRYPOINT ["/entrypoint.sh"]
 CMD service apache2 restart
 

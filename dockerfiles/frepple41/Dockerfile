@@ -27,7 +27,7 @@ RUN a2enmod wsgi
 RUN a2enmod ssl
 RUN a2ensite default-ssl
 RUN a2ensite frepple
-# RUN service apache2 restart
+RUN service apache2 restart
 
 EXPOSE 8000
 
@@ -36,7 +36,7 @@ COPY resources/entrypoint.sh /
 USER frepple
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["service apache2 restart"]
+CMD [service apache2 restart]
 
 
 # RUN apt-get install -y software-properties-common wget

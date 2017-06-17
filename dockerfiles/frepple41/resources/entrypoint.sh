@@ -9,8 +9,7 @@ set -e
 : ${USER:=${DB_ENV_POSTGRES_USER:=${POSTGRES_USER:='frepple'}}}
 : ${PASSWORD:=${DB_ENV_POSTGRES_PASSWORD:=${POSTGRES_PASSWORD:='frepple'}}}
 
-
-sudo frepplectl migrate
-sudo frepplectl loaddata demo
+frepplectl migrate
+frepplectl loaddata demo
 
 exit 1

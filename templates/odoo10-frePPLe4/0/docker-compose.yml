@@ -32,7 +32,7 @@ odoo-db:
     io.rancher.sidekicks: postgres-data
   command: postgres -c client_encoding='UTF8' -c default_transaction_isolation='read committed' -c timezone='UTC'
 frepple:
-  image: ajroo/frepple-dockerfile
+  image: dstadel/frepple41
   links:
   - frepple-db:frepple-db
   ports:

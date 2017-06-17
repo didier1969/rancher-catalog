@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM debian:jessie
 RUN apt-get -y -q update
 RUN apt-get -y -q upgrade
 
@@ -40,4 +40,4 @@ RUN service apache2 restart
 
 EXPOSE 8000
 
-CMD ["startfrepple"]
+CMD ["service apache2 restart"]

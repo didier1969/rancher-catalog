@@ -31,7 +31,7 @@ RUN a2ensite frepple
 
 EXPOSE 8000
 
-COPY entrypoint.sh /
+COPY resources/entrypoint.sh /
 
 USER frepple
 

@@ -1,7 +1,7 @@
 odoo:
   image: odoo
   links:
-  - odoo-db:odoo-db
+  - odoo-db:db
   ports:
   - 8070:8069/tcp
 odoo-lb:

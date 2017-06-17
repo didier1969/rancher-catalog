@@ -8,7 +8,7 @@ WORKDIR /resources
 RUN apt-get -y install python3 python3-pip
 
 RUN apt-get install -y build-essential
-RUN apt-get install libpython3.5
+RUN apt-get install -y libpython3.5
 RUN apt-get install -y libstdc++6
 RUN apt-get install -y libxerces-c3.1
 RUN apt-get install -y apache2

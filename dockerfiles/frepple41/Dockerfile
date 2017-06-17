@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM ubuntu:xenial
 RUN apt-get -y -q update
 RUN apt-get -y -q upgrade
 
@@ -8,12 +8,14 @@ WORKDIR /resources
 RUN apt-get -y install python3 python3-pip
 
 RUN apt-get install -y build-essential
-# RUN apt-get install libpython
+RUN apt-get install libpython3.5
 RUN apt-get install -y libstdc++6
 RUN apt-get install -y libxerces-c3.1
 RUN apt-get install -y apache2
 RUN apt-get install -y libapache2-mod-wsgi-py3
 RUN apt-get install -y python3-psycopg2
+
+RUN apt-get -y -q full-upgrade
 
 RUN pip3 install -r requirements.txt
 
